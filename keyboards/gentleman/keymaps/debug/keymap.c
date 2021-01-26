@@ -20,7 +20,7 @@
 enum layer_names {
     _BASE,  // Colemak mod DH
     _KAI,   // beginner, no modifier on home row
-    _PUNC,  // puncuation
+    _PN,    // puncuation
     _FN     // function
 };
 
@@ -28,10 +28,10 @@ enum layer_names {
 #define _A(X) ALT_T(X)
 #define _S(X) SFT_T(X)
 #define _G(X) GUI_T(X)
-#define FN_TAB LT(_FN, KC_TAB)
-#define PN_BS LT(_PUNC, KC_BSPC)
+#define PN_ENT LT(_PN, KC_ENT)
+#define FN_BS LT(_FN, KC_BSPC)
 // macOS shortcut
-#define MSNCTL  C(KC_DOWN)
+#define MSNCTL  C(KC_UP)
 #define WKSPLF  C(KC_LEFT)
 #define WKSPRT  C(KC_RGHT)
 #define COPY    G(KC_C)
@@ -47,10 +47,10 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] LAYOUT(
-    KC_ESC, _______, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,     KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, _______, KC_BSPC,
-    KC_TAB, _C(KC_A),_A(KC_R),_S(KC_S),_G(KC_T),KC_G,    KC_QUOT,    KC_M, _G(KC_N),_S(KC_E),_A(KC_I),_C(KC_O),         KC_ENT,
+    KC_ESC, KC_GRV, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,     KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSLS, KC_BSPC,
+    KC_TAB, _A(KC_A),_C(KC_R),_S(KC_S),_G(KC_T),KC_G,    KC_QUOT,    KC_M, _G(KC_N),_S(KC_E),_C(KC_I),_A(KC_O),         KC_ENT,
     KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_MINS,  KC_EQL,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    KC_LCTL,  _______,   KC_LCTL, KC_LGUI,  PN_BS,  FN_TAB,  KC_CAPS, KC_SPC,   KC_LEFT,    KC_DOWN,    KC_UP,  KC_RGHT
+    KC_LCTL,  _______,   KC_LCTL, KC_LGUI,  FN_BS,  PN_ENT,  KC_CAPS, KC_SPC,   KC_LEFT,    KC_DOWN,    KC_UP,  KC_RGHT
     ),
     // [_KAI] LAYOUT(
     //     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,             KC_QUOT,          KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
@@ -70,10 +70,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     //     _______, _______, _______, _______,    _______,   _______, _______,   _______,   _______, _______, _______, _______
 
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, COPY,    PSTE,   _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______,    _______,   _______, _______,   _______,   _______, _______, _______, _______
+    _______, _______, _______, SCNSHOT,   DIVVY,_______, _______,                   _______, KC_7, KC_8, KC_9, KC_PLUS, _______, _______,
+            _______,    UNDO,    CUT,   COPY,    PSTE,   _______, _______,          _______, KC_4, KC_5, KC_6, KC_MINS, _______,
+            _______,    REDO,  WKSPLF,  MSNCTL,  WKSPRT, _______, _______,  _______,_______, KC_1, KC_2, KC_3, KC_ASTR, _______,
+                _______, _______, _______, _______,    _______,  _______, _______,   KC_0,   KC_COMM, KC_DOT, _______, KC_SLSH
     //
     // _______, _______, _______, SCNSHOT,   DIVVY,   _______,   _______,    _______,    _______,    _______,    KC_UP,   KC_VOLD, KC_VOLU, _______, _______,
     //     _______,    UNDO,       CUT,    COPY,      PSTE,   _______,    _______,    _______,      KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
