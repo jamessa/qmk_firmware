@@ -47,10 +47,10 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] LAYOUT(
-    KC_ESC, KC_GRV, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,     KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSLS, KC_BSPC,
-    KC_TAB, _A(KC_A),_C(KC_R),_S(KC_S),_G(KC_T),KC_G,    KC_QUOT,    KC_M, _G(KC_N),_S(KC_E),_C(KC_I),_A(KC_O),         KC_ENT,
+    KC_ESC, KC_GRV, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,     KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_LBRC, KC_RBRC,
+    KC_TAB, _A(KC_A),_C(KC_R),_S(KC_S),_G(KC_T),KC_G,    KC_QUOT,    KC_M, _G(KC_N),_S(KC_E),_C(KC_I),_A(KC_O),         KC_BSLS,
     KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_MINS,  KC_EQL,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    KC_LCTL,  _______,   KC_LCTL, KC_LGUI,  FN_BS,  PN_ENT,  KC_CAPS, KC_SPC,   KC_LEFT,    KC_DOWN,    KC_UP,  KC_RGHT
+    _______,  _______,   _______, _______,  FN_BS,  PN_ENT,  KC_CAPS, KC_SPC,   KC_LEFT,    KC_DOWN,    KC_UP,  KC_RGHT
     ),
     // [_KAI] LAYOUT(
     //     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,             KC_QUOT,          KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
