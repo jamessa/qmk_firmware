@@ -30,6 +30,7 @@ enum layer_names {
 #define _G(X) GUI_T(X)
 #define PN_ENT LT(_PN, KC_ENT)
 #define FN_BS LT(_FN, KC_BSPC)
+#define SPC_PN LT(_PN, KC_SPC)
 // macOS shortcut
 #define MSNCTL  C(KC_UP)
 #define WKSPLF  C(KC_LEFT)
@@ -47,10 +48,14 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] LAYOUT(
-    KC_ESC, KC_GRV, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,     KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_LBRC, KC_RBRC,
-    KC_TAB, _A(KC_A),_C(KC_R),_S(KC_S),_G(KC_T),KC_G,    KC_BSLS,    KC_M, _G(KC_N),_S(KC_E),_C(KC_I),_A(KC_O),         KC_QUOT,
-    KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_MINS,  KC_EQL,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    _______,  _______,   _______, _______,  FN_BS,  PN_ENT,  KC_CAPS,LT(_PN, KC_SPC),   KC_LEFT,    KC_DOWN,    KC_UP,  KC_RGHT
+     // esc      `        Q        W        F        P        B        J        L        U        Y        ;        [        ]
+     KC_ESC,  KC_GRV,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_LBRC, KC_RBRC,
+         // tab      A        R        S        T        G        \        M        N        E        I        O        '
+         KC_TAB, _A(KC_A),_C(KC_R),_G(KC_S),_S(KC_T), KC_G,    KC_BSLS, KC_M,   _S(KC_N),_G(KC_E),_C(KC_I),_A(KC_O), KC_QUOT,
+     // shift    Z        X        C        D        V        -        =        K        H        ,        .        /        shift
+     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_MINS, KC_EQL,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+     //                                            bkspc    enter     caps    space    left     down      up      right
+              _______, _______, _______, _______, FN_BS,   PN_ENT,  KC_CAPS, SPC_PN,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
     ),
     // [_KAI] LAYOUT(
     //     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,             KC_QUOT,          KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
