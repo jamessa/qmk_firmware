@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      // esc      `        Q        W        F        P        B        J        L        U        Y        ;        [        ]
      KC_ESC,  KC_GRV,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_LBRC, KC_RBRC,
          // tab      A        R        S        T        G        \        M        N        E        I        O        '
-         KC_TAB, _A(KC_A),_C(KC_R),_G(KC_S),_S(KC_T), KC_G,    KC_BSLS, KC_M,   _S(KC_N),_G(KC_E),_C(KC_I),_A(KC_O), KC_QUOT,
+         KC_TAB, _A(KC_A),_C(KC_R),_S(KC_S),_G(KC_T), KC_G,    KC_BSLS, KC_M,   _G(KC_N),_S(KC_E),_C(KC_I),_A(KC_O), KC_QUOT,
      // shift    Z        X        C        D        V        -        =        K        H        ,        .        /        shift
      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_MINS, KC_EQL,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
      //                                            bkspc    enter     caps    space    left     down      up      right
