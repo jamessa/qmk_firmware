@@ -41,6 +41,7 @@ enum layer_names {
 #define UNDO    G(KC_Z)
 #define REDO    G(S(KC_Z))
 #define SCNSHOT S(G(KC_4))
+#define SPOTLT  G(KC_SPC)
 // window management utility
 #define DIVVY   G(KC_G)
 // puncuation
@@ -64,15 +65,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //     _C(KC_ESC), _A(KC_UP), _G(KC_DOWN), PN_BS,  FN_TAB,  KC_ENT,  KC_CAPS, KC_SPC,  KC_LEFT, KC_RGHT, KC_BSLS
     // ),
     // [_PUNC] LAYOUT(
-    //     KC_PERC, KC_CIRC, KC_AMPR, KC_DLR,  _______,          _______,          _______, KC_7,    KC_8,    KC_9,    KC_PLUS,
+    //     KC_PEC, KC_CIRC, KC_AMPR, KC_DLR,  _______,          _______,          _______, KC_7,    KC_8,    KC_9,    KC_PLUS,
     //     KC_EXLM, KC_AT,   KC_HASH, KC_DQOT, KC_LPRN,    _______,    _______,    KC_RPRN, KC_4,    KC_5,    KC_6,    KC_MINS,
     //     _______, _______, _______, KC_QUOT, _______, _______, _______, _______, _______, KC_1,    KC_2,    KC_3,    KC_ASTR,
     //              _______, _______, _______, _______, _______, _______, _______, KC_0,    KC_COMM, KC_DOT,  KC_SLSH
     // ),
     [_PN] LAYOUT(
-    _______, KC_AT,   KC_DLR,  KC_AMPR, KC_LCBR, KC_RCBR, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, KC_EXLM, KC_HASH, KC_LPRN, KC_RPRN, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_CIRC, KC_PERC, KC_LBRC, KC_RBRC, KC_ASTR, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, KC_EXLM,  KC_AT, KC_LCBR, KC_RCBR, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, KC_DLR, KC_HASH, KC_LPRN, KC_RPRN, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_CIRC, KC_AMPR, KC_LBRC, KC_RBRC, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______,    _______,   _______, _______,   _______,   _______, _______, _______, _______
     ),
     [_FN] LAYOUT(
@@ -81,10 +82,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     //     _______, _______, _______, _______,    _______,   _______, _______,   _______,   _______, _______, _______, _______
 
-    _______, _______, _______, SCNSHOT,   DIVVY,_______, _______,                   _______, KC_7, KC_8, KC_9, KC_PLUS, _______, _______,
-            _______,    UNDO,    CUT,   COPY,    PSTE,   _______, _______,          _______, KC_4, KC_5, KC_6, KC_MINS, _______,
-            _______,    REDO,  WKSPLF,  MSNCTL,  WKSPRT, _______, _______,  _______,_______, KC_1, KC_2, KC_3, KC_ASTR, _______,
-                _______, _______, _______, _______,    _______,  _______, _______,   KC_0,   KC_DOT,KC_COMM,KC_DOT, KC_SLSH
+    _______, _______, _______, SCNSHOT,   DIVVY, SPOTLT, _______,                   _______, KC_7, KC_8, KC_9, KC_PLUS, KC_PERC, _______,
+            _______,    UNDO,    CUT,   COPY,    PSTE,   _______, _______,          _______, KC_4, KC_5, KC_6, KC_MINS, KC_ASTR,
+            _______,    REDO,  WKSPLF,  MSNCTL,  WKSPRT, _______, _______,  _______,_______, KC_1, KC_2, KC_3, KC_SLSH, _______,
+                _______, _______, _______, _______,    _______,  _______, _______,   KC_0,   KC_DOT,_______,_______, _______
     //
     // _______, _______, _______, SCNSHOT,   DIVVY,   _______,   _______,    _______,    _______,    _______,    KC_UP,   KC_VOLD, KC_VOLU, _______, _______,
     //     _______,    UNDO,       CUT,    COPY,      PSTE,   _______,    _______,    _______,      KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
