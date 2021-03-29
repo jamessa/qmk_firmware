@@ -24,14 +24,34 @@ qk_tap_dance_action_t tap_dance_actions[] = {
    [TD_2]  = ACTION_TAP_DANCE_DOUBLE(KC_2, KC_7),
    [TD_3]  = ACTION_TAP_DANCE_DOUBLE(KC_3, KC_8),
    [TD_4]  = ACTION_TAP_DANCE_DOUBLE(KC_4, KC_9),
-   [TD_5]  = ACTION_TAP_DANCE_DOUBLE(KC_5, KC_0)};
+   [TD_5]  = ACTION_TAP_DANCE_DOUBLE(KC_5, KC_0),
+ };
 
-
+// layout variations
+enum{_BASIC, _HUB, _V1, _V2};
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] LAYOUT(
-      KC_ESC,  TD(TD_2),TD(TD_3),TD(TD_4),TD(TD_5),
-  SFT_T(KC_Q), TD(TD_1),KC_W,    KC_E,    KC_R,
+    [_BASIC] LAYOUT(
+      TD(TD_1),TD(TD_2),TD(TD_3),TD(TD_4),TD(TD_5),
+      KC_ESC,  KC_Q,    KC_W,    KC_E,    LT(_HUB, KC_R),
       KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,
       KC_LCTL, KC_F2,   KC_F3,   KC_F5,   KC_SPC
+    ),
+    [_HUB] LAYOUT(
+      TO(_V1),   TO(_V2),   TO(_BASIC),TO(_BASIC),TO(_BASIC),
+      TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC), _______ ,
+      TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC),
+      TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC),  RESET
+    ),
+    [_V1] LAYOUT(
+      KC_ESC,  TD(TD_2),TD(TD_3),TD(TD_4),TD(TD_5),
+  SFT_T(KC_Q), TD(TD_1),KC_W,    KC_E,    LT(_HUB, KC_R),
+      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,
+      KC_LCTL, KC_F2,   KC_F3,   KC_F5,   KC_SPC
+    ),
+    [_V2] LAYOUT( // reverse T
+      KC_ESC,  KC_6,    KC_7,    KC_8,    KC_9,
+      KC_1,    KC_2,    KC_3,    KC_4,    LT(_HUB, KC_5),
+      KC_LSFT, KC_A,    KC_W,    KC_D,    KC_E,
+      KC_LCTL, KC_F2,   KC_S,   KC_F3,   KC_SPC
     )
 };
