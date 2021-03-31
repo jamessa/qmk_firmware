@@ -28,18 +28,18 @@ qk_tap_dance_action_t tap_dance_actions[] = {
  };
 
 // layout variations
-enum{_BASIC, _HUB, _V1, _V2};
+enum{_BASIC, _HUB, _V1, _V2, _V3, _V4};
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASIC] LAYOUT(
-      TD(TD_1),TD(TD_2),TD(TD_3),TD(TD_4),TD(TD_5),
-      KC_ESC,  KC_Q,    KC_W,    KC_E,    LT(_HUB, KC_R),
-      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,
-      KC_LCTL, KC_F2,   KC_F3,   KC_F5,   KC_SPC
+      KC_ESC,  TD(TD_1),TD(TD_2),TD(TD_3),TD(TD_4),
+      KC_R,    KC_Q,    KC_W,    KC_E,    TD(TD_5),
+      KC_LSFT, KC_A,    KC_S,    KC_D,    LT(_HUB, KC_F),
+      KC_LCTL, KC_F2,   KC_F5,   KC_F3,   KC_SPC
     ),
     [_HUB] LAYOUT(
-      TO(_V1),   TO(_V2),   TO(_BASIC),TO(_BASIC),TO(_BASIC),
-      TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC), _______ ,
       TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC),
+      TO(_BASIC),TO(_V1),   TO(_V2),   TO(_V3),     _______ ,
+      TO(_BASIC),TO(_V4),   TO(_BASIC),TO(_BASIC),TO(_BASIC),
       TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC),  RESET
     ),
     [_V1] LAYOUT(
@@ -53,5 +53,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_1,    KC_2,    KC_3,    KC_4,    LT(_HUB, KC_5),
       KC_LSFT, KC_A,    KC_W,    KC_D,    KC_E,
       KC_LCTL, KC_F2,   KC_S,   KC_F3,   KC_SPC
+    ),
+    [_V3] LAYOUT(
+      TD(TD_1),TD(TD_2),TD(TD_3),TD(TD_4),TD(TD_5),
+      KC_ESC,  KC_Q,    KC_W,    KC_E,    LT(_HUB, KC_R),
+      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,
+      KC_LCTL, KC_F2,   KC_F3,   KC_F5,   KC_SPC
+    ),
+    [_V4] LAYOUT(
+      KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,
+      KC_LSFT, KC_A,    KC_W,    KC_D,    KC_5,
+      KC_LCTL, KC_Q,    KC_S,    KC_E,    KC_6,
+      TO(_BASIC), KC_7,    KC_8,    KC_9,    KC_SPC
     )
 };
+
+void keyboard_post_init_user(void) {
+  debug_enable=true;
+  debug_matrix=true;
+}
