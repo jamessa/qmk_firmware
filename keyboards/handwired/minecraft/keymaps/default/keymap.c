@@ -28,18 +28,18 @@ qk_tap_dance_action_t tap_dance_actions[] = {
  };
 
 // layout variations
-enum{_BASIC, _HUB, _V1, _V2, _V3, _V4};
+enum{_BASIC, _HUB, _FN, _V1, _V2, _V3, _V4, _V5};
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASIC] LAYOUT(
-      KC_ESC,  TD(TD_1),TD(TD_2),TD(TD_3),TD(TD_4),
-      KC_R,    KC_Q,    KC_W,    KC_E,    TD(TD_5),
-      KC_LSFT, KC_A,    KC_S,    KC_D,    LT(_HUB, KC_F),
-      KC_LCTL, KC_F2,   KC_F5,   KC_F3,   KC_SPC
+      KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,
+LT(_HUB, KC_L),KC_Q,    KC_W,    KC_E,    KC_5,
+      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_6,
+      KC_LCTL, KC_7,    KC_8,    KC_9,    KC_SPC
     ),
     [_HUB] LAYOUT(
       TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC),
-      TO(_BASIC),TO(_V1),   TO(_V2),   TO(_V3),     _______ ,
-      TO(_BASIC),TO(_V4),   TO(_BASIC),TO(_BASIC),TO(_BASIC),
+      _______,   TO(_V1),   TO(_V2),   TO(_V3),     _______ ,
+      TO(_BASIC),TO(_V4),   TO(_V5),   TO(_BASIC),TO(_BASIC),
       TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC),  RESET
     ),
     [_V1] LAYOUT(
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,
       KC_LCTL, KC_F2,   KC_F3,   KC_F5,   KC_SPC
     ),
-    [_V2] LAYOUT( // reverse T
+    [_V2] LAYOUT( // T
       KC_ESC,  KC_6,    KC_7,    KC_8,    KC_9,
       KC_1,    KC_2,    KC_3,    KC_4,    LT(_HUB, KC_5),
       KC_LSFT, KC_A,    KC_W,    KC_D,    KC_E,
@@ -60,11 +60,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,
       KC_LCTL, KC_F2,   KC_F3,   KC_F5,   KC_SPC
     ),
-    [_V4] LAYOUT(
+    [_V4] LAYOUT( // T, shift on nature pinky
       KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,
-      KC_LSFT, KC_A,    KC_W,    KC_D,    KC_5,
-      KC_LCTL, KC_Q,    KC_S,    KC_E,    KC_6,
-      TO(_BASIC), KC_7,    KC_8,    KC_9,    KC_SPC
+      KC_LCTL, KC_A,    KC_W,    KC_D,    KC_5,
+      KC_LSFT, KC_Q,    KC_S,    KC_E,    KC_6,
+      TO(_FN), KC_7,    KC_8,    KC_9,    KC_SPC
+    ),
+    [_FN] LAYOUT( // T
+      _______, KC_F1 , KC_F2 , KC_F3 , KC_F4 ,
+      _______,_______,_______,_______, KC_F5 ,
+      _______,_______,_______,_______, KC_F6 ,
+      TO(_V4),  KC_F7,  KC_F8, KC_F11,_______
+    ),
+    [_V5] LAYOUT( // Reverse T
+      KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,
+      KC_LSFT, KC_Q,    KC_W,    KC_E,    KC_5,
+      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_6,
+      KC_LCTL, KC_7,    KC_8,    KC_9,    KC_SPC
     )
 };
 
