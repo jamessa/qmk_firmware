@@ -28,13 +28,13 @@ qk_tap_dance_action_t tap_dance_actions[] = {
  };
 
 // layout variations
-enum{_BASIC, _HUB, _FN, _V1, _V2, _V3, _V4, _V5};
+enum{_BASIC, _HUB, _FN, _V1, _V2, _V3, _V4, _V5, _V6};
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASIC] LAYOUT(
       KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,
 LT(_HUB, KC_L),KC_Q,    KC_W,    KC_E,    KC_5,
-      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_6,
-      KC_LCTL, KC_7,    KC_8,    KC_9,    KC_SPC
+      KC_LSFT, KC_A,    KC_S,    KC_D,    CTL_T(KC_6),
+      KC_F3,   KC_9,    KC_8,    SFT_T(KC_7),    KC_SPC
     ),
     [_HUB] LAYOUT(
       TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC),TO(_BASIC),
@@ -60,7 +60,7 @@ LT(_HUB, KC_L),KC_Q,    KC_W,    KC_E,    KC_5,
       KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,
       KC_LCTL, KC_F2,   KC_F3,   KC_F5,   KC_SPC
     ),
-    [_V4] LAYOUT( // T, shift on nature pinky
+    [_V4] LAYOUT( // T, shift on nature pinky  9
       KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,
       KC_LCTL, KC_A,    KC_W,    KC_D,    KC_5,
       KC_LSFT, KC_Q,    KC_S,    KC_E,    KC_6,
@@ -75,6 +75,12 @@ LT(_HUB, KC_L),KC_Q,    KC_W,    KC_E,    KC_5,
     [_V5] LAYOUT( // Reverse T
       KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,
       KC_LSFT, KC_Q,    KC_W,    KC_E,    KC_5,
+      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_6,
+      KC_LCTL, KC_7,    KC_8,    KC_9,    KC_SPC
+    ),
+    [_V6] LAYOUT(
+      KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,
+LT(_HUB, KC_L),KC_Q,    KC_W,    KC_E,    KC_5,
       KC_LSFT, KC_A,    KC_S,    KC_D,    KC_6,
       KC_LCTL, KC_7,    KC_8,    KC_9,    KC_SPC
     )
