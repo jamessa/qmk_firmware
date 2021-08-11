@@ -16,19 +16,26 @@
 
 #include QMK_KEYBOARD_H
 
+enum{_V1};
 
-// layout variations
-enum{_BASIC};
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASIC] LAYOUT(
-      KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,
-      KC_L,    KC_Q,    KC_W,    KC_E,    KC_5,
-      KC_LSFT, KC_A,    KC_S,    KC_D,    CTL_T(KC_6),
-      KC_F3,   KC_9,    KC_8,    SFT_T(KC_7),    KC_SPC
+    [_V1] LAYOUT(
+        KC_F1,   KC_D,    KC_G,    KC_P,    KC_SCLN,
+        KC_F2,   KC_A,    KC_S,    KC_R,    KC_T,
+        KC_F3,   KC_Z,    KC_X,    KC_C,    KC_LALT,
+        KC_F4,   KC_F,    KC_B,    KC_LGUI, KC_SPC
     )
 };
 
 void keyboard_post_init_user(void) {
   debug_enable=true;
   debug_matrix=true;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  // If console is enabled, it will print the matrix position and status of each key pressed
+#ifdef CONSOLE_ENABLE
+    uprintf("KL: kc: 0x%04X, col: %u, row: %u, pressed: %b, time: %u, interrupt: %b, count: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed, record->event.time, record->tap.interrupted, record->tap.count);
+#endif
+  return true;
 }
