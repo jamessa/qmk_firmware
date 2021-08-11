@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x0410
 
 #define MANUFACTURER    JSA
-#define PRODUCT         Minecraft
+#define PRODUCT         CraftPad
 /* USB Version in Binary-coded decimal: 0xJJMN where
  * JJ is the major number, M is minor, N is sub minor. */
 #define DEVICE_VER      0x0100  // Version 1.00: hand-wire
@@ -44,11 +44,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define UNUSED_PINS
 #define DIODE_DIRECTION COL2ROW
 
-// https://docs.qmk.fm/using-qmk/software-features/tap_hold
-#define TAPPING_TERM 200
-
-/* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
-#define DEBOUNCE 5
 
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
 #define MATRIX_HAS_GHOST
