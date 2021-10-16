@@ -30,12 +30,9 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [_BASE] = LAYOUT(
-        KC_A,    KC_1,    MO(_FN),
-            KC_TAB,   KC_SPC
-    ),
-    [_FN] = LAYOUT(
-        QMKBEST, QMKURL,  _______,
-            RESET,    XXXXXXX
+        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,
+        KC_A,    KC_R,    KC_S,    KC_T,    KC_G,
+        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V, KC_BSPC, KC_CAPS
     )
 };
 
@@ -59,4 +56,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
     }
     return true;
+}
+
+void keyboard_post_init_user(void) {
+  // Customise these values to desired behaviour
+  debug_enable=true;
+  debug_matrix=true;
+  //debug_keyboard=true;
+  //debug_mouse=true;
 }
