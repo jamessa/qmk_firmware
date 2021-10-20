@@ -18,7 +18,9 @@
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     _BASE,
-    _FN
+    _SYM,   // Symbol
+    _EXT,   // Extend
+    _FUN    // Function
 };
 
 // Defines the keycodes used by our macros in process_record_user
@@ -28,12 +30,31 @@ enum custom_keycodes {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /* Base */
     [_BASE] = LAYOUT(
-        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                   KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT,
-        KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                                   KC_M,    KC_N,    KC_E,    KC_I,    KC_O,
-        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V, KC_BSPC, KC_CAPS, KC_ENT, KC_SPC, KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH
+        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,   KC_J,   KC_L,    KC_U,    KC_Y,    KC_QUOT,
+        KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   KC_M,   KC_N,    KC_E,    KC_I,    KC_O,
+        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,   KC_K,   KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
+                             KC_LSFT,MO(_EXT),   MO(_SYM), KC_SPC
+    ),
+    [_SYM] = LAYOUT(
+        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,   KC_J,   KC_L,    KC_U,    KC_Y,    KC_QUOT,
+        KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   KC_M,   KC_N,    KC_E,    KC_I,    KC_O,
+        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,   KC_K,   KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
+                             KC_LSFT,TO(_EXT),   KC_NO, KC_ENT
+    ),
+    [_EXT] = LAYOUT(
+        KC_ESC, LALT(KC_LEFT), G(KC_F), LALT(KC_RGHT),KC_INS,                    KC_PGUP, KC_HOME, KC_UP, KC_END, KC_CAPS,
+        OSM(MOD_LALT), KC_LGUI, OSM(MOD_LSFT), OSM(MOD_LCTL), OSM(MOD_RALT),     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,
+        G(KC_Z), G(KC_X), G(KC_C), KC_TAB, G(KC_V),                              KC_ENT, KC_BSPC, KC_RCTL, KC_LALT, KC_APP,
+                                    KC_NO,KC_NO,                                 KC_NO, KC_ENT
+    ),
+    [_FUN] = LAYOUT(
+        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,   KC_J,   KC_L,    KC_U,    KC_Y,    KC_QUOT,
+        KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   KC_M,   KC_N,    KC_E,    KC_I,    KC_O,
+        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,   KC_K,   KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
+                             KC_LSFT,TO(_EXT),   KC_ENT, KC_ENT
     )
+
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -62,6 +83,4 @@ void keyboard_post_init_user(void) {
   // Customise these values to desired behaviour
   debug_enable=true;
   debug_matrix=true;
-  //debug_keyboard=true;
-  //debug_mouse=true;
 }
