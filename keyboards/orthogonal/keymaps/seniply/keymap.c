@@ -34,13 +34,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,   KC_J,   KC_L,    KC_U,    KC_Y,    KC_QUOT,
         KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   KC_M,   KC_N,    KC_E,    KC_I,    KC_O,
         KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,   KC_K,   KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
-                             KC_LSFT,MO(_EXT),   MO(_SYM), KC_SPC
+                        KC_LSFT,MO(_EXT),   MO(_SYM), KC_SPC
     ),
     [_SYM] = LAYOUT(
-        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,   KC_J,   KC_L,    KC_U,    KC_Y,    KC_QUOT,
-        KC_A,    KC_R,    KC_S,    KC_T,    KC_G,   KC_M,   KC_N,    KC_E,    KC_I,    KC_O,
-        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,   KC_K,   KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
-                             KC_LSFT,TO(_EXT),   KC_NO, KC_ENT
+        KC_EXLM,KC_AT,  KC_HASH,KC_DLR, KC_PERC,   KC_EQL,  KC_7, KC_8,   KC_9, KC_PLUS,
+        KC_SCLN,KC_COLN,KC_LCBR,KC_LPRN,KC_LBRC,   KC_ASTR, KC_4, KC_5,   KC_6, KC_MINS,
+        KC_CIRC,KC_AMPR,KC_RCBR,KC_RPRN,KC_RBRC,   KC_0,    KC_1, KC_2,   KC_3, KC_SLSH,
+                                KC_LSFT,KC_NO,     KC_NO, KC_NO
     ),
     [_EXT] = LAYOUT(
         KC_ESC, LALT(KC_LEFT), G(KC_F), LALT(KC_RGHT),KC_INS,                    KC_PGUP, KC_HOME, KC_UP, KC_END, KC_CAPS,
@@ -81,6 +81,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 void keyboard_post_init_user(void) {
   // Customise these values to desired behaviour
-  debug_enable=true;
-  debug_matrix=true;
+//   debug_enable=true;
+//   debug_matrix=true;
 }
