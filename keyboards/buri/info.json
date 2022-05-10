@@ -1,5 +1,5 @@
 {
-    "manufacturer": "James Sa",
+    "manufacturer": "tokimekey",
     "keyboard_name": "buri",
     "maintainer": "jamessa",
     "bootloader": "atmel-dfu",
@@ -12,16 +12,12 @@
         "mousekey": true,
         "nkro": true
     },
-    "matrix_pins": {
-        "cols": ["C2", "C2", "C2", "C2"],
-        "rows": ["D1", "D1", "D1", "D1"]
-    },
     "processor": "atmega32u4",
     "url": "",
     "usb": {
-        "device_version": "1.0.0",
-        "pid": "0x0000",
-        "vid": "0xFEED"
+        "device_version": "1.0.1",
+        "pid": "0x0037",
+        "vid": "0x0076"
     },
     "layouts": {
         "LAYOUT_ortho_4x4": {
